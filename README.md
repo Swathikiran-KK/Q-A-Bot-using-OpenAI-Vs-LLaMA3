@@ -41,44 +41,42 @@ The goal is to help you **see which model performs better** across different tas
 
 ## Folder Structure
 
-## 📁 Folder Structure
+qa_benchmark/
+├── app.py
+├── README.md
+├── requirements.txt
+├── .env                             # API keys (excluded from git)
+│
+├── pages/
+│   ├── 1_Text_Compare.py            # OpenAI vs LLaMA-3.1 text comparison + voting
+│   ├── 2_Multimodal_Compare.py      # Image→Text (vision) & Document→Text + voting
+│   ├── 3_RAG_Compare.py             # PDF → RAG hybrid retrieval + grounded QA + voting
+│   ├── 4_Analytics.py               # Charts + summary + CSV persistence + reset
+│   └── 5_Settings.py                # Model / config view
+│
+├── components/
+│   └── ui.py                        # UI layout helpers (headers, metric cards, answer blocks)
+│
+├── services/
+│   ├── openrouter.py                # OpenAI (OpenRouter) API client — text + vision
+│   ├── groq_llama.py                # Groq API client — LLaMA-3.1 text
+│   ├── embeddings_jina.py           # (Optional) Jina embeddings for vector DB
+│   └── vectordb_qdrant.py           # (Optional) Qdrant vector DB with TF-IDF fallback
+│
+├── retrieval/
+│   ├── document_processor.py        # Extract & chunk text from PDF/DOCX/TXT/CSV
+│   └── hybrid_retriever.py          # BM25 + TF-IDF hybrid retriever
+│
+├── evaluators/
+│   └── metrics.py                   # Token cost, readability, grounding, length metrics
+│
+├── analytics/
+│   └── tracker.py                   # run_id-based tracking + persistent CSV logging
+│
+└── utils/
+    └── config.py                    # Environment keys, model names, cost map
 
-
-📂 qa_benchmark
-┣ 📄 app.py → Main homepage + navigation
-┣ 📄 README.md
-┃
-┣ 📂 pages (Streamlit multipage UI)
-┃ ┣ 📝 1_Text_Compare.py → OpenAI vs LLaMA-3.1 text comparison + voting
-┃ ┣ 🖼️ 2_Multimodal_Compare.py → Image→Text (OpenAI vision) & Document→Text + voting
-┃ ┣ 📚 3_RAG_Compare.py → PDF → RAG (Hybrid + Vector Search) + citations + voting
-┃ ┣ 📊 4_Analytics.py → Metrics dashboard + vote counts + final winner + reset
-┃ ┗ ⚙️ 5_Settings.py → Display model configuration & environment status
-┃
-┣ 📂 components
-┃ ┗ 🎨 ui.py → UI layout helpers (headers, metric cards, answer blocks)
-┃
-┣ 📂 services
-┃ ┣ 🤖 openrouter.py → GPT-4o-mini via OpenRouter (text + vision)
-┃ ┣ ⚡ groq_llama.py → LLaMA-3.1 via Groq (super-fast text)
-┃ ┣ 🔤 embeddings_jina.py → (Optional) Jina embeddings for vector DB
-┃ ┗ 🗄️ vectordb_qdrant.py → (Optional) Qdrant vector DB (auto-fallback to TF-IDF)
-┃
-┣ 📂 retrieval
-┃ ┣ 📄 document_processor.py → PDF / DOCX / TXT / CSV text extraction & chunking
-┃ ┗ 🧭 hybrid_retriever.py → BM25 + TF-IDF hybrid retriever (torch-free)
-┃
-┣ 📂 evaluators
-┃ ┗ 📐 metrics.py → Readability, grounding coverage, citations, token estimates
-┃
-┣ 📂 analytics
-┃ ┗ 🧾 tracker.py → run_id-based logging + CSV persistence + vote storage
-┃
-┣ 📂 utils
-┃ ┗ 🔧 config.py → Model names, API keys, cost map
-┃
-┣ 📦 requirements.txt → Dependencies
-┗ 🔒 .env → Your keys
+---
 
 Key Links:
 
