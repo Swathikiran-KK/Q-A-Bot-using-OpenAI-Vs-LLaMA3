@@ -50,36 +50,36 @@ qa_benchmark/
 ├─ README.md
 │
 ├─ pages/
-│  ├─ 1_Text_Compare.py           # Text: OpenAI vs LLaMA-3.1 + metrics, voting
-│  ├─ 2_Multimodal_Compare.py     # Image→Text (OpenAI vision) & Document→Text + voting
-│  ├─ 3_RAG_Compare.py            # PDF→RAG (Hybrid + Vector blend) + citations + voting
-│  ├─ 4_Analytics.py              # Charts + Overall Verdict; CSV persistence; reset button
-│  └─ 5_Settings.py               # Models shown (names/ids)
+│ ├─ 1_Text_Compare.py # Text: OpenAI vs LLaMA-3.1 + metrics + voting
+│ ├─ 2_Multimodal_Compare.py # Image→Text (OpenAI vision) & Document→Text + voting
+│ ├─ 3_RAG_Compare.py # PDF→RAG (Hybrid + Vector blend) + citations + voting
+│ ├─ 4_Analytics.py # Charts + Overall Verdict + CSV persistence + Reset
+│ └─ 5_Settings.py # Show current model settings
 │
 ├─ components/
-│  └─ ui.py                       # Minimal, light UI helpers (headers, metrics, cards)
+│ └─ ui.py # UI helpers (headers, metric cards, answer blocks)
 │
 ├─ services/
-│  ├─ openrouter.py               # OpenAI via OpenRouter (text + vision with mime_types)
-│  ├─ groq_llama.py               # Groq client (LLaMA-3.1 text)
-│  ├─ embeddings_jina.py          # Jina embeddings (optional for Vector DB)
-│  └─ vectordb_qdrant.py          # Qdrant+Jina vector DB (fallback to TF-IDF)
+│ ├─ openrouter.py # OpenAI via OpenRouter (text + vision)
+│ ├─ groq_llama.py # Groq client (LLaMA-3.1 text)
+│ ├─ embeddings_jina.py # (Optional) Jina embeddings for vector DB
+│ └─ vectordb_qdrant.py # (Optional) Qdrant vector DB with fallback to TF-IDF
 │
 ├─ retrieval/
-│  ├─ document_processor.py       # Extract text (PDF/DOCX/CSV/TXT), chunking
-│  └─ hybrid_retriever.py         # BM25 + TF-IDF hybrid retriever
+│ ├─ document_processor.py # Extract text + chunk (PDF/DOCX/TXT/CSV)
+│ └─ hybrid_retriever.py # BM25 + TF-IDF hybrid retriever
 │
 ├─ evaluators/
-│  └─ metrics.py                  # Token/cost/readability/citations/coverage utilities
+│ └─ metrics.py # Latency, token count, readability, grounding
 │
 ├─ analytics/
-│  └─ tracker.py                  # In-memory runs + run_id + CSV persistence
+│ └─ tracker.py # run_id-based logging + CSV persistence
 │
 ├─ utils/
-│  └─ config.py                   # Keys, model names, cost map
+│ └─ config.py # API keys, model names, cost map
 │
 ├─ requirements.txt
-└─ .env                           # your keys (DO NOT COMMIT)
+└─ .env
 
 Key Links:
 
