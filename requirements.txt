@@ -1,0 +1,12 @@
+streamlit
+requests
+python-dotenv
+rank-bm25
+PyPDF2
+pandas
+plotly
+numpy
+scikit-learn
+qdrant-client==1.9.1
+textstat
+python-docx
