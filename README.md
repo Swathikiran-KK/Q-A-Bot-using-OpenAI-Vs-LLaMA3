@@ -43,30 +43,39 @@ The goal is to help you **see which model performs better** across different tas
 
 qa_benchmark/
 │
-├─ app.py
-├─ pages/
-│ ├─ 1_Text_Compare.py
-│ ├─ 2_Multimodal_Compare.py
-│ ├─ 3_RAG_Compare.py
-│ ├─ 4_Analytics.py
-│ └─ 5_Settings.py
+├─ app.py # Main entry point (homepage + navigation)
 │
-├─ components/ui.py
-├─ services/
-│ ├─ openrouter.py
-│ ├─ groq_llama.py
-│ ├─ embeddings_jina.py (optional)
-│ └─ vectordb_qdrant.py (optional)
+├─ pages/ # Streamlit multi-page views
+│ ├─ 1_Text_Compare.py # Text prompt comparison (OpenAI vs LLaMA3)
+│ ├─ 2_Multimodal_Compare.py # Image → Text and Document → Text comparison
+│ ├─ 3_RAG_Compare.py # PDF-based Retrieval-Augmented Q&A
+│ ├─ 4_Analytics.py # Metrics dashboard + winner report
+│ └─ 5_Settings.py # Display current model configuration
+│
+├─ components/
+│ └─ ui.py # Shared UI components (cards, headers, layout)
+│
+├─ services/ # Model and external service wrappers
+│ ├─ openrouter.py # OpenRouter (OpenAI GPT-4o-mini for text & vision)
+│ ├─ groq_llama.py # Groq API wrapper (LLaMA 3.1 text)
+│ ├─ embeddings_jina.py # (Optional) Jina text embeddings for vector DB
+│ └─ vectordb_qdrant.py # (Optional) Qdrant vector storage + search
 │
 ├─ retrieval/
-│ ├─ document_processor.py
-│ └─ hybrid_retriever.py
+│ ├─ document_processor.py # PDF / DOCX / TXT / CSV text extraction + chunking
+│ └─ hybrid_retriever.py # BM25 + TF-IDF hybrid retriever (no GPU required)
 │
-├─ analytics/tracker.py
-├─ evaluators/metrics.py
-├─ utils/config.py
-├─ requirements.txt
-└─ .env (do not commit)
+├─ evaluators/
+│ └─ metrics.py # Token estimates, readability, grounding, etc.
+│
+├─ analytics/
+│ └─ tracker.py # Stores runs, votes, computes IDs, persists CSV
+│
+├─ utils/
+│ └─ config.py # API keys, model names, pricing, settings
+│
+├─ requirements.txt # Python dependencies
+└─ .env 
 
 Key Links:
 
