@@ -41,41 +41,45 @@ The goal is to help you **see which model performs better** across different tas
 
 ## Folder Structure
 
+## 📁 Folder Structure
+
+
 qa_benchmark/
 │
-├─ app.py # Main entry point (homepage + navigation)
+├─ app.py
+├─ README.md
 │
-├─ pages/ # Streamlit multi-page views
-│ ├─ 1_Text_Compare.py # Text prompt comparison (OpenAI vs LLaMA3)
-│ ├─ 2_Multimodal_Compare.py # Image → Text and Document → Text comparison
-│ ├─ 3_RAG_Compare.py # PDF-based Retrieval-Augmented Q&A
-│ ├─ 4_Analytics.py # Metrics dashboard + winner report
-│ └─ 5_Settings.py # Display current model configuration
+├─ pages/
+│  ├─ 1_Text_Compare.py           # Text: OpenAI vs LLaMA-3.1 + metrics, voting
+│  ├─ 2_Multimodal_Compare.py     # Image→Text (OpenAI vision) & Document→Text + voting
+│  ├─ 3_RAG_Compare.py            # PDF→RAG (Hybrid + Vector blend) + citations + voting
+│  ├─ 4_Analytics.py              # Charts + Overall Verdict; CSV persistence; reset button
+│  └─ 5_Settings.py               # Models shown (names/ids)
 │
 ├─ components/
-│ └─ ui.py # Shared UI components (cards, headers, layout)
+│  └─ ui.py                       # Minimal, light UI helpers (headers, metrics, cards)
 │
-├─ services/ # Model and external service wrappers
-│ ├─ openrouter.py # OpenRouter (OpenAI GPT-4o-mini for text & vision)
-│ ├─ groq_llama.py # Groq API wrapper (LLaMA 3.1 text)
-│ ├─ embeddings_jina.py # (Optional) Jina text embeddings for vector DB
-│ └─ vectordb_qdrant.py # (Optional) Qdrant vector storage + search
+├─ services/
+│  ├─ openrouter.py               # OpenAI via OpenRouter (text + vision with mime_types)
+│  ├─ groq_llama.py               # Groq client (LLaMA-3.1 text)
+│  ├─ embeddings_jina.py          # Jina embeddings (optional for Vector DB)
+│  └─ vectordb_qdrant.py          # Qdrant+Jina vector DB (fallback to TF-IDF)
 │
 ├─ retrieval/
-│ ├─ document_processor.py # PDF / DOCX / TXT / CSV text extraction + chunking
-│ └─ hybrid_retriever.py # BM25 + TF-IDF hybrid retriever (no GPU required)
+│  ├─ document_processor.py       # Extract text (PDF/DOCX/CSV/TXT), chunking
+│  └─ hybrid_retriever.py         # BM25 + TF-IDF hybrid retriever
 │
 ├─ evaluators/
-│ └─ metrics.py # Token estimates, readability, grounding, etc.
+│  └─ metrics.py                  # Token/cost/readability/citations/coverage utilities
 │
 ├─ analytics/
-│ └─ tracker.py # Stores runs, votes, computes IDs, persists CSV
+│  └─ tracker.py                  # In-memory runs + run_id + CSV persistence
 │
 ├─ utils/
-│ └─ config.py # API keys, model names, pricing, settings
+│  └─ config.py                   # Keys, model names, cost map
 │
-├─ requirements.txt # Python dependencies
-└─ .env 
+├─ requirements.txt
+└─ .env                           # your keys (DO NOT COMMIT)
 
 Key Links:
 
