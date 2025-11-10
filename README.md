@@ -42,39 +42,42 @@ The goal is to help you **see which model performs better** across different tas
 ## Folder Structure
 
 qa_benchmark/
+|
 ├── app.py
 ├── README.md
-├── requirements.txt
-├── .env                             # API keys (excluded from git)
-│
+|
 ├── pages/
-│   ├── 1_Text_Compare.py            # OpenAI vs LLaMA-3.1 text comparison + voting
-│   ├── 2_Multimodal_Compare.py      # Image→Text (vision) & Document→Text + voting
-│   ├── 3_RAG_Compare.py             # PDF → RAG hybrid retrieval + grounded QA + voting
-│   ├── 4_Analytics.py               # Charts + summary + CSV persistence + reset
-│   └── 5_Settings.py                # Model / config view
-│
+│   ├── 1_Text_Compare.py
+│   ├── 2_Multimodal_Compare.py
+│   ├── 3_RAG_Compare.py
+│   ├── 4_Analytics.py
+│   └── 5_Settings.py
+|
 ├── components/
-│   └── ui.py                        # UI layout helpers (headers, metric cards, answer blocks)
-│
+│   └── ui.py
+|
 ├── services/
-│   ├── openrouter.py                # OpenAI (OpenRouter) API client — text + vision
-│   ├── groq_llama.py                # Groq API client — LLaMA-3.1 text
-│   ├── embeddings_jina.py           # (Optional) Jina embeddings for vector DB
-│   └── vectordb_qdrant.py           # (Optional) Qdrant vector DB with TF-IDF fallback
-│
+│   ├── openrouter.py
+│   ├── groq_llama.py
+│   ├── embeddings_jina.py
+│   └── vectordb_qdrant.py
+|
 ├── retrieval/
-│   ├── document_processor.py        # Extract & chunk text from PDF/DOCX/TXT/CSV
-│   └── hybrid_retriever.py          # BM25 + TF-IDF hybrid retriever
-│
+│   ├── document_processor.py
+│   └── hybrid_retriever.py
+|
 ├── evaluators/
-│   └── metrics.py                   # Token cost, readability, grounding, length metrics
-│
+│   └── metrics.py
+|
 ├── analytics/
-│   └── tracker.py                   # run_id-based tracking + persistent CSV logging
-│
-└── utils/
-    └── config.py                    # Environment keys, model names, cost map
+│   └── tracker.py
+|
+├── utils/
+│   └── config.py
+|
+├── requirements.txt
+└── .env
+
 
 ---
 
