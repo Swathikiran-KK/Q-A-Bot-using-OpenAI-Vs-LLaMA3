@@ -8,6 +8,11 @@ This project provides a simple and clear way to **compare answers from two diffe
 The goal is to help you **see which model performs better** across different tasks such as answering text prompts, understanding images, summarizing documents, and answering questions based on PDF content. The system also includes a voting feature and an analytics dashboard that summarizes performance and gives an **overall winner**.
 
 ---
+## 🖥️ App Preview
+
+<p align="center">
+  <img src="Output/output1.png" width="700"/>
+</p>
 
 ## Features
 
