@@ -41,42 +41,36 @@ The goal is to help you **see which model performs better** across different tas
 
 ## Folder Structure
 
+```
 qa_benchmark/
-|
 ├── app.py
 ├── README.md
-|
 ├── pages/
 │   ├── 1_Text_Compare.py
 │   ├── 2_Multimodal_Compare.py
 │   ├── 3_RAG_Compare.py
 │   ├── 4_Analytics.py
 │   └── 5_Settings.py
-|
 ├── components/
 │   └── ui.py
-|
 ├── services/
 │   ├── openrouter.py
 │   ├── groq_llama.py
 │   ├── embeddings_jina.py
 │   └── vectordb_qdrant.py
-|
 ├── retrieval/
 │   ├── document_processor.py
 │   └── hybrid_retriever.py
-|
 ├── evaluators/
 │   └── metrics.py
-|
 ├── analytics/
 │   └── tracker.py
-|
 ├── utils/
 │   └── config.py
-|
 ├── requirements.txt
 └── .env
+```
+
 
 
 ---
