@@ -121,7 +121,7 @@ These are combined in the analytics dashboard to produce a **final performance s
 ## Comparison
 
 <p align="center">
-  <img src="Output/output9.png" width="700"/>
+  <img src="Output/output8.png" width="700"/>
   <img src="Output/output10.png" width="700"/>
   <img src="Output/output11.png" width="700"/>
   <img src="Output/output12.png" width="700"/>
